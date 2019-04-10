@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="style.css">
+<a href="index.html">Home</a>
+<hr class="headernav">
+
+
+<div id="exercise">
+	<button v-on:click="alert">Show Alert</button>
+	<hr>
+	Keydown : <input type="text" v-on:keydown="storeValue">
+	<p>{{ inputValue }}</p>
+	<hr>
+	Enter Key : <input type="text" v-on:keydown.enter="loadValue">
+	<p>{{ loadInput }}</p>
+</div>
+
+<script>
+	new Vue ({
+		el : '#exercise',
+		data : {
+			inputValue : '',
+			loadInput : ''
+		},
+		methods : {
+			alert : function(event) {
+				alert("Alert !!");
+			},
+			storeValue : function(event) {
+				this.inputValue = event.target.value;
+			},
+			loadValue : function(event) {
+				this.loadInput = event.target.value;
+			}
+		}
+	});
+</script>

@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="style.css">
+<a href="index.html">Home</a>
+<hr class="headernav">
+
+<div id="exercise">
+	<h3>Vue Js is Pretty cool - {{name}} ({{age}})</h3>
+	<p>Age X 3 - {{ageX3()}}</p>
+	<hr>
+	<p>Random between 0 - 1 : {{rand()}}</p>
+	<hr>
+	<img v-bind:src="imgSrc">
+	<hr>
+	<input type="text" v-bind:value="name">
+</div>
+
+<script>
+	new Vue({
+		el : '#exercise',
+		data : {
+			name : 'Parthiban',
+			age : '35',
+			imgSrc : "https://pbs.twimg.com/profile_banners/2292889800/1538315722/600x200"
+		},
+		methods : {
+			ageX3 : function() {
+				return this.age*3;
+			},
+			rand : function () {
+				return Math.random(0,1);
+			}
+		}
+	});
+</script>
